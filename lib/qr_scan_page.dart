@@ -48,7 +48,7 @@ class _QRScanPageState extends State<QRScanPage> {
       controller.scannedDataStream.listen((scanData) {
         setState(() {
           result = scanData.code;
-          http.post(Uri.parse("https://inducedapi.vercel.app/cc?idp="+result));
+          http.post(Uri.parse("https://inducedapi.vercel.app/cc?idp="+result)).then((value) => print(value.request.toString()));
         });
       });
     });
